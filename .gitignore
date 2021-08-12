@@ -73,8 +73,3 @@ fabric.properties
 .DS_Store
 node_modules
 package-lock.json
-
-docs/*
-!docs/CNAME
-!docs/robots.txt
-!docs/assets

@@ -1,85 +1,85 @@
 .skills.animated {
-    opacity: 1;
+  opacity: 1;
 }
 
 .skills__item {
-    background-color: $color_grey-10;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    overflow: hidden;
+  background-color: $color_grey-10;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
 
-    &_name {
-        color: $color_base-white;
-        display: block;
-        font-weight: 400;
-        line-height: 1.6;
-        padding: 10px 0;
-        text-align: center;
-        text-transform: uppercase;
-        width: 160px;
-    }
-    &_bar {
-        height: 100%;
-        left: 0;
-        opacity: 0.6;
-        position: absolute;
-        top: 0;
-        transition: width 1200ms ease-out 0s;
+  &_name {
+    color: $color_base-white;
+    display: block;
+    font-weight: 400;
+    line-height: 1.6;
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: 160px;
+  }
+  &_bar {
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    transition: width 1200ms ease-out 0s;
 
-        &-wrapper {
-            position: relative;
-        }
+    &-wrapper {
+      position: relative;
     }
-    &_percent {
-        color: $color_blue-10;
-        display: block;
-        font-size: Rem(14px);
-        font-weight: 400;
-        text-align: center;
-        width: 55px;
-    }
+  }
+  &_percent {
+    color: $color_blue-10;
+    display: block;
+    font-size: Rem(14px);
+    font-weight: 400;
+    text-align: center;
+    width: 55px;
+  }
 }
 
 .logos {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .logos__item {
-    margin-top: 25px;
+  margin-top: 25px;
 
-    &_img {
-        height: 60px;
-        width: 60px;
-    }
+  &_img {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 @include Screen-sm {
 
-    .skills__item {
+  .skills__item {
 
-        &_name {
-            font-size: Rem(14px);
-            padding: 9px 0;
-        }
+    &_name {
+      font-size: Rem(14px);
+      padding: 9px 0;
     }
+  }
 }
 
 @include Screen-xs {
 
-    .skills__item {
+  .skills__item {
 
-        &_name {
-            width: 45%;
-        }
-        &_percent {
-            font-size: Rem(12px);
-        }
+    &_name {
+      width: 45%;
     }
+    &_percent {
+      font-size: Rem(12px);
+    }
+  }
 }
 
 @media (min-width: #{$screen_sm-max + 1}) {
-    
-    .skills:not(.filled) .skills__item_bar {
-        width: 0 !important;
-    }
+
+  .skills:not(.filled) .skills__item_bar {
+    width: 0 !important;
+  }
 }

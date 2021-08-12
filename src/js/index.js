@@ -6,9 +6,10 @@ import '../scss/vendor/fancybox.scss'
 import '../scss/style.scss'
 
 // Vendors JS
-import 'waypoints/lib/jquery.waypoints';
-import '@fancyapps/fancybox';
+import 'waypoints/lib/jquery.waypoints'
+import '@fancyapps/fancybox'
 
 // JS
-import App from './app.js';
-new App();
+import App from './app.js'
+
+new App()

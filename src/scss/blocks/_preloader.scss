@@ -1,29 +1,29 @@
 .preloader {
-    @include Transition(4);
-    background-color: $color_blue-20;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    visibility: hidden;
-    width: 100%;
-    z-index: 999;
-    
-    &_spinner {
-        animation: spin 620ms infinite linear;
-        border: 2px solid $color_grey-30;
-        border-radius: 100%;
-        border-top: 2px solid $color_green-10;
-        height: 56px;
-        left: 50%;
-        margin: -28px 0 0 -28px;
-        position: absolute;
-        top: 50%;
-        width: 56px;
-    }
-    &.visible {
-        opacity: 1;
-        visibility: visible;
-    }
+  @include Transition(4);
+  background-color: $color_blue-20;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 999;
+
+  &_spinner {
+    animation: spin 620ms infinite linear;
+    border: 2px solid $color_grey-30;
+    border-radius: 100%;
+    border-top: 2px solid $color_green-10;
+    height: 56px;
+    left: 50%;
+    margin: -28px 0 0 -28px;
+    position: absolute;
+    top: 50%;
+    width: 56px;
+  }
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
 }

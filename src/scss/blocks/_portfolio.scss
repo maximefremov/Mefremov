@@ -1,102 +1,102 @@
 .portfolio__item:nth-child(odd) .portfolio__content {
-    order: 1;
+  order: 1;
 }
 
 .portfolio__item {
-    margin-top: 20px;
-    min-height: 300px;
+  margin-top: 20px;
+  min-height: 300px;
 
-    &::after {
-        background-color: $color_grey-20;
-        content: "";
-        display: block;
-        height: 1px;
-        margin: 30px 15px;
-        order: 2;
-        padding: 0 15px;
-        width: 100%;
-    }
-    &:last-child::after {
-        display: none;
-    }
+  &::after {
+    background-color: $color_grey-20;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 30px 15px;
+    order: 2;
+    padding: 0 15px;
+    width: 100%;
+  }
+  &:last-child::after {
+    display: none;
+  }
 }
 
 .portfolio__content {
 
-    &_desc, &_tags {
-        color: $color_blue-10;
-        font-size: Rem(12px);
-        text-transform: uppercase;
-    }
-    &_title {
-        color: $color_blue-20;
-        margin-bottom: 10px;
-    }
-    &_desc {
-        border-left: 5px solid $color_green-10;
-        display: inline-block;
-        font-weight: 700;
-        line-height: 20px;
-        padding-left: 10px;
-    }
-    &_text, &_tags {
-        margin: 30px 0;
-    }
-    &_text {
-        color: $color_grey-30;
-    }
-    &_tags {
-        font-style: italic;
-        font-weight: 400;
-    }
-    &_buttons .button + .button {
-        margin-left: 20px;
-    }
+  &_desc, &_tags {
+    color: $color_blue-10;
+    font-size: Rem(12px);
+    text-transform: uppercase;
+  }
+  &_title {
+    color: $color_blue-20;
+    margin-bottom: 10px;
+  }
+  &_desc {
+    border-left: 5px solid $color_green-10;
+    display: inline-block;
+    font-weight: 700;
+    line-height: 20px;
+    padding-left: 10px;
+  }
+  &_text, &_tags {
+    margin: 30px 0;
+  }
+  &_text {
+    color: $color_grey-30;
+  }
+  &_tags {
+    font-style: italic;
+    font-weight: 400;
+  }
+  &_buttons .button + .button {
+    margin-left: 20px;
+  }
 }
 
 .portfolio__cover {
-    display: block;
-    image-rendering: pixelated;
-    margin: 0 auto;
-    max-width: 445px;
-    pointer-events: none;
-    user-select: none;
+  display: block;
+  image-rendering: pixelated;
+  margin: 0 auto;
+  max-width: 445px;
+  pointer-events: none;
+  user-select: none;
 }
 
 
 @include Screen-md {
 
-    .portfolio__item {
-        margin-top: 0;
-    }
-    .portfolio__content {
+  .portfolio__item {
+    margin-top: 0;
+  }
+  .portfolio__content {
 
-        &_buttons .button + .button {
-            margin-left: 0;
-            margin-top: 10px;
-        }
+    &_buttons .button + .button {
+      margin-left: 0;
+      margin-top: 10px;
     }
+  }
 }
 
 @include Screen-sm {
 
-    #portfolio {
+  #portfolio {
 
-        .container {
-            max-width: none;
-        }
+    .container {
+      max-width: none;
     }
-    .portfolio__content {
+  }
+  .portfolio__content {
 
-        &_text, &_tags {
-            margin: 20px 0;
-        }
+    &_text, &_tags {
+      margin: 20px 0;
     }
+  }
 }
 
 @include Screen-xs {
 
-    .portfolio__content {
-        margin-top: 10px;
-    }
+  .portfolio__content {
+    margin-top: 10px;
+  }
 }

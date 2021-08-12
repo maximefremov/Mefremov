@@ -3,11 +3,11 @@
 @import "../variables/fonts";
 
 $grid-breakpoints: (
-    xs: 0,
-    sm: $screen_xs-max + 1,
-    md: $screen_sm-max + 1,
-    lg: $screen_md-max + 1,
-    xl: $screen_lg-max + 1
+  xs: 0,
+  sm: $screen_xs-max + 1,
+  md: $screen_sm-max + 1,
+  lg: $screen_md-max + 1,
+  xl: $screen_lg-max + 1
 );
 
 $font-family-base: $font_name-base;

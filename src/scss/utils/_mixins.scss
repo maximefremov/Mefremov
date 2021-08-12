@@ -2,74 +2,79 @@
 
 // Миксин, генерирующий шрифты
 @mixin Font-face($name, $path, $weight: null, $style: null, $exts: otf eot woff2 woff ttf svg) {
-    $src: null;
+  $src: null;
 
-    $extmods: (
-        eot: "?",
-        svg: "#" + str-replace($name, " ", "_")
-    );
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
 
-    $formats: (
-        otf: "opentype",
-        ttf: "truetype"
-    );
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
 
-    @each $ext in $exts {
-        $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-        $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-    }
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
 
-    @font-face {
-        font-family: quote($name);
-        src: $src;
-        font-style: $style;
-        font-weight: $weight;
-        font-display: swap;
-    }
+  @font-face {
+    font-family: quote($name);
+    src: $src;
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+  }
 }
 
 // Миксин, задающий анимацию
 @mixin Transition($speed, $property: all) {
-    @if $speed == 1 { $speed: 120ms; }
-    @else if $speed == 2 { $speed: 220ms; }
-    @else if $speed == 3 { $speed: 320ms; }
-    @else if $speed == 4 { $speed: 420ms; }
-    transition: $property $speed cubic-bezier(0.28, 0.45, 0.57, 1) 0ms;
+  @if $speed == 1 {
+    $speed: 120ms;
+  } @else if $speed == 2 {
+    $speed: 220ms;
+  } @else if $speed == 3 {
+    $speed: 320ms;
+  } @else if $speed == 4 {
+    $speed: 420ms;
+  }
+  transition: $property $speed cubic-bezier(0.28, 0.45, 0.57, 1) 0ms;
 }
 
 // Миксины для медиа-запросов
 @mixin Screen-xs {
 
-    @media (max-width: #{$screen_xs-max}) {
-        @content;
-    }
+  @media (max-width: #{$screen_xs-max}) {
+    @content;
+  }
 }
 
 @mixin Screen-sm {
 
-    @media (max-width: #{$screen_sm-max}) {
-        @content;
-    }
+  @media (max-width: #{$screen_sm-max}) {
+    @content;
+  }
 }
 
 @mixin Screen-md {
 
-    @media (max-width: #{$screen_md-max}) {
-        @content;
-    }
+  @media (max-width: #{$screen_md-max}) {
+    @content;
+  }
 }
 
 @mixin Screen-lg {
 
-    @media (max-width: $screen_lg-max) {
-        @content;
-    }
+  @media (max-width: $screen_lg-max) {
+    @content;
+  }
 }
 
 @mixin Screen-xl {
 
-    @media (min-width: $screen_xl-min) {
-        @content;
-    }
+  @media (min-width: $screen_xl-min) {
+    @content;
+  }
 }

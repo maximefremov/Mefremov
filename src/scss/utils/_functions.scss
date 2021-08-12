@@ -2,17 +2,19 @@
 
 // Функция заменяет одну или несколько подстрок, найденных в заданной строке
 @function Str-replace($string, $search, $replace: "") {
-    $index: str-index($string, $search);
-  
-    @if $index {
-      @return str-slice($string, 1, $index - 1) + $replace + Str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-    }
-  
-    @return $string;
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + Str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
 }
 
 // Функция, пересчитывающая пиксели в em от базового размера шрифта
 @function Rem($target) {
-    @if $target == 0 { @return 0; }
-    @return $target / $font_size-body + 0rem;
+  @if $target == 0 {
+    @return 0;
+  }
+  @return $target / $font_size-body + 0rem;
 }
