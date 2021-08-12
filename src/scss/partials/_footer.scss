@@ -1,0 +1,176 @@
+footer {
+    position: relative;
+    z-index: 1;
+
+    &::before, &::after {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    &::before {
+        background: $color_blue-20 url("/assets/img/footer_bg.jpg") no-repeat 50%;
+        background-size: cover;
+        image-rendering: pixelated;
+    }
+    &::after {
+        background-color: rgba($color_base-black, 0.45);
+    }
+    .block {
+        padding-bottom: 0;
+    }
+    .header, .contact {
+        position: relative;
+        z-index: 1;
+    }
+    .header {
+        
+        h2, p {
+            color: $color_base-white;
+        }
+    }
+}
+
+.contact {
+    position: relative;
+}
+
+.contact__form {
+    @include Transition(3, opacity);
+    font-size: Rem(18px);
+    margin: 0 auto;
+    max-width: 600px;
+    position: relative;
+
+    &_inputs {
+        margin-top: 30px;
+        width: 100%;
+    }
+    &_name, &_email {
+        margin-bottom: 20px;
+    }
+    &_name {
+        margin-right: 15px;
+    }
+    &_email {
+        margin-left: 15px;
+    }
+    &_msg {
+        height: 130px;
+        padding-top: 5px;
+        width: 100%;
+    }
+    &_submit {
+        color: $color_base-white;
+        margin-top: 55px;
+
+        &.success {
+            background-color: $color_success;
+            border-color: $color_success;
+        }
+        &.error {
+            background-color: $color_error;
+            border-color: $color_error;
+        }
+    }
+    &.inactive {
+        opacity: 0.4;
+        pointer-events: none;
+        z-index: -1;
+    }
+    &_alert {
+        @include Transition(4);
+        border-radius: 5px;
+        color: $color_base-white;
+        margin-bottom: 40px;
+        opacity: 0;
+        padding: 50px 20px;
+        text-align: center;
+        transform: translateY(35px);
+        width: 300px;
+    
+        &-wrapper {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        &.success {
+            background-color: $color_success;
+        }
+        &.error {
+            background-color: $color_error;
+        }
+        &.active {
+            opacity: 0.9;
+            transform: translateY(0);
+        }
+    }
+}
+
+.footer-bottom {
+    padding-bottom: 50px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.footer__scroll {
+    height: 50px;
+    margin: 20px 0 10px;
+    transform: rotate(180deg);
+    width: 50px;
+
+    .arrow {
+        fill: $color_blue-10;
+    }
+    &:hover .arrow {
+        fill: $color_grey-20;
+    }
+}
+
+.footer__copyright {
+    color: $color_grey-30;
+    font-size: Rem(14px);
+    font-weight: 400;
+
+    &_name {
+        color: $color_blue-10;
+
+        &:hover {
+            color: $color_grey-20;
+        }
+    }
+}
+
+
+@include Screen-sm {
+
+    .contact__form {
+
+        &_inputs {
+            margin-top: 15px;
+        }
+        &_submit {
+            margin-top: 45px;
+        }
+    }
+}
+
+@include Screen-xs {
+
+    .contact__form {
+        font-size: Rem(16px);
+
+        &_name, &_email {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &_msg {
+            padding-top: 0;
+        }
+    }
+}

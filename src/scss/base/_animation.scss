@@ -1,0 +1,85 @@
+.animated {
+    opacity: 0;
+
+    &.fade-in {
+        animation: fadeIn 820ms ease both;
+    }
+    &.slide-in-fwd {
+        animation: slideInFwd 820ms ease both;
+    }
+    &.slide-in-left {
+        animation: slideInLeft 720ms ease both;
+    }
+    &.slide-in-right {
+        animation: slideInRight 720ms ease both;
+    }
+}
+
+
+@keyframes fadeIn {
+
+    100% { 
+        opacity: 1; 
+    }
+}
+
+@keyframes slideInFwd {
+
+    0% {
+        transform: translateY(55px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+
+    0% {
+        transform: translateX(-300px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slideInRight {
+
+    0% {
+        transform: translateX(300px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+@keyframes zoomOutIn {
+
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+@keyframes jumpDownUp {
+    
+    0%, 20%, 100% { transform: translateY(0); }
+    10% { transform: translateY(15px); }
+}
+
+@keyframes spin {
+
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+@include Screen-sm {
+
+    .animated {
+        animation: none !important;
+        opacity: 1;
+    }
+}

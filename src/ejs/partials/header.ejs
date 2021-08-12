@@ -1,0 +1,79 @@
+<% const header = require('../../config/' + lang + '/header.' + lang + '.js'); %>
+
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="utf-8">
+    <title><%= header.title %></title>
+    <meta name="description" content="<%= header.description %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <%= metrics.header %>
+</head>
+<body class="compensate-for-scrollbar">
+
+<%= require('./../blocks/preloader.ejs')() %>
+    
+<header class="d-flex flex-column justify-content-between">
+    <section class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="header__logo col">
+                    <a class="header__logo_link" href="<%= header.homeLink %>">M.E.</a>
+                </div>
+                <div class="header__menu-wrapper col-md-8 d-md-block">
+                    <nav class="header__menu d-flex flex-md-row flex-column justify-content-center">
+                        <% for (key in header.menu) { %>
+                            <span class="header__menu_item align-items-baseline">
+                                <a class="header__menu_link" href="<%= header.menu[key] %>"><%= key %></a>
+                            </span>
+                        <% } %>
+                    </nav>
+                </div>
+                
+                <div class="header__lang col d-flex justify-content-end">
+                    <% var isRus = ' active';
+                       var isEng = '';
+                    if (lang == 'eng') {
+                        isEng = isRus;
+                        isRus = '';
+                    }
+                    %>
+                    <a class="header__lang_toggle<%= isRus %>" href="/">Rus</a>
+                    <a class="header__lang_toggle<%= isEng %>" href="/eng/">Eng</a>
+                </div>
+                
+                <button class="header__menu_toggle d-block d-md-none">
+                    <span class="header__menu_toggle_line"></span>
+                    <span class="header__menu_toggle_line"></span>
+                    <span class="header__menu_toggle_line"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="header-middle">
+        <div class="container">
+            <div class="row">
+                <div class="header__hero col">
+                    <h1 class="header__hero_name">
+                        <span><%= header.heroFname %></span> <span><%= header.heroLname %></span>
+                    </h1>
+                    <hr>
+                    <p class="header__hero_career"><%= header.heroCareer %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="header-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="header__scroll col">
+                    <a class="header__scroll_link d-inline-flex flex-column align-items-center" href="<%= header.scrollMore.link %>">
+                        <p class="header__scroll_more"><%= header.scrollMore.text %></p>
+                        <span class="header__scroll_arrow"><%= icons.arrow %></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

@@ -1,0 +1,23 @@
+.button {
+    @include Transition(3);
+    background-color: transparent;
+    border: 2px solid $color_green-10;
+    border-radius: 20px;
+    color: $color_blue-20;
+    cursor: pointer;
+    display: inline-block;
+    font-size: Rem(12px);
+    font-weight: 700;
+    min-width: 200px;
+    padding: 12px 0;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+    white-space: pre;
+
+    &:hover {
+        background-color: $color_blue-20;
+        border-color: $color_blue-20;
+        color: $color_base-white;
+    }
+}
