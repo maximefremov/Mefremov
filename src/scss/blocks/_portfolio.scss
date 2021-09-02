@@ -19,8 +19,12 @@
   }
 }
 
+.portfolio__content, .portfolio__cover {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 .portfolio__content {
-  margin: 20px 0;
 
   &_desc, &_tags {
     color: $color_blue-10;
@@ -54,7 +58,8 @@
 
 .portfolio__cover {
   border-radius: 5px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 500px;
   pointer-events: none;
   user-select: none;
@@ -63,8 +68,11 @@
 
 @include Screen-md {
 
+  .portfolio__content, .portfolio__cover {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
   .portfolio__content {
-    margin: 0;
 
     &_buttons .button + .button {
       margin-left: 0;
