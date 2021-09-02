@@ -3,7 +3,7 @@ module.exports = {
   header: 'Портфолио',
   desc: 'Здесь можно увидеть и оценить примеры моих работ. Почти все они были разработаны "с нуля".',
   visitButton: 'Посетить сайт',
-  screenshotButton: 'Скриншот',
+  screenshotButton: 'Скриншоты',
   works: [{
     id: '001-remte',
     count: 1,
@@ -34,7 +34,7 @@ module.exports = {
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, Gulp',
     site: 'https://remtel32.ru',
     title: 'ММС32 - Мобильный мульти-сервис',
-    desc: '',
+    desc: 'Разработка дизайна, создание темы для WordPress',
     text: ''
   }, {
     id: '005-bnroil',
@@ -42,7 +42,7 @@ module.exports = {
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, WooCommerce, Gulp',
     site: 'https://bnroil.ru',
     title: 'БрянскНефтеРесурс',
-    desc: '',
+    desc: 'Разработка дизайна, создание темы для WordPress, наполнение контентом',
     text: ''
   }, {
     id: '006-zvezda',
@@ -50,7 +50,7 @@ module.exports = {
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, Gulp',
     site: 'https://zvezda-ur.ru',
     title: 'Звезда - Юридические услуги',
-    desc: '',
+    desc: 'Разработка дизайна, создание темы для WordPress',
     text: ''
   }]
 }

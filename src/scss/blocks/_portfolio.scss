@@ -3,8 +3,6 @@
 }
 
 .portfolio__item {
-  margin-top: 20px;
-  min-height: 300px;
 
   &::after {
     background-color: $color_grey-20;
@@ -22,6 +20,7 @@
 }
 
 .portfolio__content {
+  margin: 20px 0;
 
   &_desc, &_tags {
     color: $color_blue-10;
@@ -54,9 +53,9 @@
 }
 
 .portfolio__cover {
-  image-rendering: pixelated;
+  border-radius: 5px;
   margin: 0 auto;
-  max-width: 445px;
+  max-width: 500px;
   pointer-events: none;
   user-select: none;
 }
@@ -64,10 +63,8 @@
 
 @include Screen-md {
 
-  .portfolio__item {
-    margin-top: 0;
-  }
   .portfolio__content {
+    margin: 0;
 
     &_buttons .button + .button {
       margin-left: 0;
@@ -90,5 +87,8 @@
 
   .portfolio__content {
     margin-top: 10px;
+  }
+  .portfolio__cover {
+    max-width: none;
   }
 }
