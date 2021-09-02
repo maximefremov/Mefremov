@@ -18,7 +18,7 @@ body {
   }
   &::before {
     animation: zoomOutIn 40s linear infinite;
-    background: $color_blue-20 url("/assets/img/header_bg.jpg") no-repeat 50%;
+    background: $color_blue-20 url("/assets/img/header-bg.jpg") no-repeat 50%;
     background-size: cover;
     image-rendering: pixelated;
   }
@@ -89,7 +89,7 @@ article p:last-of-type {
   background-color: $color_grey-10;
 }
 
-.header {
+.block__title {
 
   h2 {
     color: $color_blue-20;
@@ -144,7 +144,10 @@ article p:last-of-type {
   h2 {
     font-size: Rem(32px);
   }
-  .header {
+  .block {
+    padding: 60px 0;
+  }
+  .block__title {
 
     h2 {
       letter-spacing: 2px;
@@ -163,9 +166,6 @@ article p:last-of-type {
     hr {
       margin-top: 25px;
     }
-  }
-  .block {
-    padding: 60px 0;
   }
 }
 

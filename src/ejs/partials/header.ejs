@@ -1,7 +1,7 @@
-<% const header = require('../../config/' + lang + '/header.' + lang + '.js'); %>
+<% const header = require('../../config/header.js'); %>
 
 <!DOCTYPE html>
-<html lang="<%= lang %>">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <title><%= header.title %></title>
@@ -12,10 +12,10 @@
 </head>
 <body class="compensate-for-scrollbar">
 
-<%= require('./../blocks/preloader.ejs')() %>
-    
-<header class="d-flex flex-column justify-content-between">
-    <section class="header-top">
+<!--<%= require('./../blocks/preloader.ejs')() %>-->
+
+<header class="header d-flex flex-column">
+    <section class="header-top d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
                 <div class="header__logo col">
@@ -30,19 +30,10 @@
                         <% } %>
                     </nav>
                 </div>
-                
-                <div class="header__lang col d-flex justify-content-end">
-                    <% var isRus = ' active';
-                       var isEng = '';
-                    if (lang == 'eng') {
-                        isEng = isRus;
-                        isRus = '';
-                    }
-                    %>
-                    <a class="header__lang_toggle<%= isRus %>" href="/">Rus</a>
-                    <a class="header__lang_toggle<%= isEng %>" href="/eng/">Eng</a>
+                <div class="header__contacts col-lg col-auto d-flex flex-column align-items-end">
+                    <a class="header__contacts_link" href="tel:<%= header.phoneShort %>"><%= header.phoneLong %></a>
+                    <a class="header__contacts_link" href="mailto:<%= header.email %>"><%= header.email %></a>
                 </div>
-                
                 <button class="header__menu_toggle d-block d-md-none">
                     <span class="header__menu_toggle_line"></span>
                     <span class="header__menu_toggle_line"></span>

@@ -20,6 +20,7 @@
   "ignoreFiles": [
     "src/scss/base/*.scss",
     "src/scss/utils/*.scss",
-    "src/scss/vendor/*.scss"
+    "src/scss/vendor/*.scss",
+    "src/ejs/**/*.ejs"
   ]
 }

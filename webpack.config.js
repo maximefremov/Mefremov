@@ -18,39 +18,6 @@ const isProd = !isDev
 // Paths
 const publicPath = path.resolve(__dirname, 'docs')
 
-const reloadPaths = [
-  path.resolve(__dirname, 'src/ejs'),
-  publicPath
-]
-
-// Site languages
-const langs = ['rus', 'eng'];
-function getTemplate() {
-  let filename = 'index.html';
-
-  return langs.map((lang, index) => {
-    if (index) filename = lang + '/' + filename;
-    return new HtmlWebpackPlugin({
-      template: './src/ejs/index.ejs',
-      filename: filename,
-      options: {
-        lang: lang
-      },
-      hash: isProd,
-      minify: (isProd) ? {
-        collapseWhitespace: true,
-        keepClosingSlash: true,
-        removeComments: true,
-        removeRedundantAttributes: false,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      } : false
-    });
-  });
-}
-const templates = getTemplate();
-
 // Common config
 const commonConfig = {
   target: 'web',
@@ -84,8 +51,22 @@ const commonConfig = {
       isProd: isProd,
       isDev: isDev
     }),
-    new StyleLintPlugin()
-  ].concat(templates)
+    new StyleLintPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/ejs/index.ejs',
+      filename: 'index.html',
+      hash: isProd,
+      minify: (isProd) ? {
+        collapseWhitespace: true,
+        keepClosingSlash: true,
+        removeComments: true,
+        removeRedundantAttributes: false,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
+      } : false
+    })
+  ]
 }
 
 // Development config
@@ -113,18 +94,17 @@ if (isDev) {
       ]
     },
     devServer: {
-      contentBase: reloadPaths,
-      watchContentBase: true,
-      inline: true,
       historyApiFallback: true,
       open: true,
       hot: true,
-      port: 3000
+      port: 3000,
+      static: [
+        { directory: path.resolve(__dirname, 'docs') },
+        { directory: path.resolve(__dirname, 'src/ejs') },
+        { directory: path.resolve(__dirname, 'src/config') }
+      ]
     },
-    devtool: 'inline-source-map',
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
+    devtool: 'inline-source-map'
   })
 }
 

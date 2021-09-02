@@ -1,4 +1,4 @@
-footer {
+.footer {
   position: relative;
   z-index: 1;
 
@@ -11,7 +11,7 @@ footer {
     width: 100%;
   }
   &::before {
-    background: $color_blue-20 url("/assets/img/footer_bg.jpg") no-repeat 50%;
+    background: $color_blue-20 url("/assets/img/footer-bg.jpg") no-repeat 50%;
     background-size: cover;
     image-rendering: pixelated;
   }
@@ -20,21 +20,46 @@ footer {
   }
   .block {
     padding-bottom: 0;
-  }
-  .header, .contact {
     position: relative;
     z-index: 1;
   }
-  .header {
+  .block__title {
 
     h2, p {
       color: $color_base-white;
     }
   }
-}
+  &-bottom {
+    padding-bottom: 50px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+  &__scroll {
+    height: 50px;
+    margin: 20px 0 10px;
+    transform: rotate(180deg);
+    width: 50px;
 
-.contact {
-  position: relative;
+    .arrow {
+      fill: $color_blue-10;
+    }
+    &:hover .arrow {
+      fill: $color_grey-20;
+    }
+  }
+  &__copyright {
+    color: $color_grey-30;
+    font-size: Rem(14px);
+    font-weight: 400;
+
+    &_name {
+      color: $color_blue-10;
+    }
+    &_name:hover {
+      color: $color_grey-20;
+    }
+  }
 }
 
 .contact__form {
@@ -110,42 +135,6 @@ footer {
     }
   }
 }
-
-.footer-bottom {
-  padding-bottom: 50px;
-  position: relative;
-  text-align: center;
-  z-index: 1;
-}
-
-.footer__scroll {
-  height: 50px;
-  margin: 20px 0 10px;
-  transform: rotate(180deg);
-  width: 50px;
-
-  .arrow {
-    fill: $color_blue-10;
-  }
-  &:hover .arrow {
-    fill: $color_grey-20;
-  }
-}
-
-.footer__copyright {
-  color: $color_grey-30;
-  font-size: Rem(14px);
-  font-weight: 400;
-
-  &_name {
-    color: $color_blue-10;
-
-    &:hover {
-      color: $color_grey-20;
-    }
-  }
-}
-
 
 @include Screen-sm {
 

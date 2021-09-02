@@ -1,20 +1,16 @@
 .about__photo {
 
   &-wrapper {
-    align-items: center;
     border: 4px solid $color_grey-20;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    max-width: 160px;
+    border-radius: 50%;
     overflow: hidden;
-    padding: 5px;
+    padding: 4px;
     position: relative;
     user-select: none;
 
     &::after {
-      border: 5px solid $color_base-white;
-      border-radius: 100%;
+      border: 4px solid $color_base-white;
+      border-radius: 50%;
       content: "";
       height: 100%;
       left: 0;
@@ -25,13 +21,21 @@
   }
 }
 
+@include Screen-md {
+
+  .about__photo {
+    padding-right: 0;
+  }
+}
 
 @include Screen-sm {
 
   .about__photo {
+    padding: 0;
 
     &-wrapper {
-      margin: 0 auto 25px;
+      margin: 0 auto 20px;
+      max-width: 160px;
     }
   }
 }

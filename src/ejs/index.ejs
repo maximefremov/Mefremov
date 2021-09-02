@@ -1,14 +1,13 @@
 <%
-const lang = htmlWebpackPlugin.options.options.lang
 const icons = require('./../config/icons')
 const metrics = require('./../config/metrics')
-const globals = { lang, icons, metrics }
+const globals = { icons, metrics }
 %>
 
 <%= require('./partials/header.ejs')(globals) %>
 <main>
-    <%= require('./blocks/about.ejs')({lang}) %>
-    <%= require('./blocks/portfolio.ejs')({lang}) %>
-    <%= require('./blocks/skills.ejs')({lang}) %>
+    <%= require('./blocks/about.ejs')() %>
+    <%= require('./blocks/portfolio.ejs')() %>
+    <%= require('./blocks/skills.ejs')() %>
 </main>
 <%= require('./partials/footer.ejs')(globals) %>

@@ -1,9 +1,9 @@
-<% const footer = require('../../config/' + lang + '/footer.' + lang + '.js'); %>
+<% const footer = require('../../config/footer.js'); %>
 
-<footer>
+<footer class="footer">
     <section id="<%= footer.id %>" class="block">
         <div class="container">
-            <div class="header row">
+            <div class="block__title row">
                 <div class="col">
                     <h2 class="animated" data-animation="slide-in-right">
                         <%= footer.header %>
@@ -18,16 +18,16 @@
                         <div class="contact__form_alert"></div>
                     </div>
                     <form class="contact__form d-flex flex-column align-items-center">
-                        <div class="contact__form_inputs d-flex justify-content-between flex-column flex-sm-row">
-                            <input class="contact__form_name flex-grow-1" type="text" 
-                                name="Name" placeholder="<%= footer.form.name %>" autocomplete="off" 
+                        <div class="contact__form_inputs d-flex flex-column flex-sm-row">
+                            <input class="contact__form_name flex-grow-1" type="text"
+                                name="Name" placeholder="<%= footer.form.name %>" autocomplete="off"
                                 minlength="2" maxlength="64" required>
-                            <input class="contact__form_email flex-grow-1" type="email" 
-                                name="Email" placeholder="<%= footer.form.email %>" autocomplete="off" 
+                            <input class="contact__form_email flex-grow-1" type="email"
+                                name="Email" placeholder="<%= footer.form.email %>" autocomplete="off"
                                 minlength="8" maxlength="128" required>
                         </div>
                         <input class="contact__form_gotcha d-none" type="hidden" name="_gotcha">
-                        <textarea class="contact__form_msg" name="Message" 
+                        <textarea class="contact__form_msg" name="Message"
                             placeholder="<%= footer.form.msg %>" minlength="16" maxlength="2048" required></textarea>
                         <input class="contact__form_submit button" type="submit" value="<%= footer.form.submit %>">
                     </form>
@@ -47,7 +47,6 @@
                     </div>
                 </div>
             </div>
-            
         </div>
     </section>
 </footer>

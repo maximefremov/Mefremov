@@ -1,4 +1,4 @@
-header {
+.header {
   height: 100vh;
   height: calc(100vh - var(--browser-address-bar));
   min-height: 560px;
@@ -13,8 +13,8 @@ header {
 .header-top {
   @include Transition(2);
   background-color: rgba($color_blue-10, 0.2);
+  height: 80px;
   left: 0;
-  padding: 25px 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -22,8 +22,7 @@ header {
 
   &.sticky {
     background-color: rgba($color_base-black, 0.8);
-    max-height: 70px;
-    padding: 20px 0;
+    height: 70px;
   }
 }
 
@@ -33,11 +32,7 @@ header {
   line-height: 0.95;
 
   &_link {
-    color: $color_green-10;
-
-    &:hover {
-      color: $color_green-10;
-    }
+    color: $color_green-10 !important;
   }
 }
 
@@ -108,22 +103,11 @@ header {
   }
 }
 
-.header__lang {
-  font-size: Rem(12px);
-  text-transform: uppercase;
+.header__contacts {
+  font-size: Rem(13px);
 
-  &_toggle + &_toggle {
-    margin-left: 10px;
-  }
-  &_toggle {
-    color: rgba($color_green-10, 0.6);
-
-    &:hover {
-      color: rgba($color_green-10, 0.6);
-    }
-    &.active {
-      color: $color_green-10;
-    }
+  &_link + &_link {
+    margin-top: 4px;
   }
 }
 
@@ -169,10 +153,15 @@ header {
 
   &_link {
     color: $color_grey-20;
+
+    &:hover {
+      color: $color_blue-10;
+    }
   }
   &_more {
     color: inherit;
     font-weight: 300;
+    margin-bottom: 15px;
   }
   &_arrow {
     animation: jumpDownUp 4s infinite 4s;
@@ -213,7 +202,7 @@ header {
 
   .header-top {
     background-color: rgba($color_base-black, 0.4);
-    padding: 20px 0;
+    height: 70px;
   }
   .header-bottom {
     margin-bottom: 50px;

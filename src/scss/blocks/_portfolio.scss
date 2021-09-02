@@ -80,12 +80,6 @@
 
 @include Screen-sm {
 
-  #portfolio {
-
-    .container {
-      max-width: none;
-    }
-  }
   .portfolio__content {
 
     &_text, &_tags {

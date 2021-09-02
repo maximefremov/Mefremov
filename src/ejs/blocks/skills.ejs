@@ -1,8 +1,8 @@
-<% const skills = require('../../config/' + lang + '/skills.' + lang + '.js'); %>
+<% const skills = require('../../config/skills.js'); %>
 
 <section id="<%= skills.id %>" class="block block-white">
     <div class="container">
-        <div class="header row">
+        <div class="block__title row">
             <div class="col">
                 <h2 class="animated" data-animation="slide-in-left">
                     <%= skills.header %>
@@ -13,13 +13,14 @@
         </div>
         <div class="skills animated row" data-animation="filled">
 
-        <% for (var i = 0; i < skills.tools.length; i++) { var item = skills.tools[i]; %>
+        <% for (let i = 0; i < skills.tools.length; i++) { var item = skills.tools[i]; %>
             <% if (i == 0 || i == skills.tools.length / 2) { %><div class="col-md-6"><% } %>
 
             <div class="skills__item d-flex">
                 <span class="skills__item_name" style="background-color: <%= item.color %>;"><%= item.name %></span>
                 <div class="skills__item_bar-wrapper flex-grow-1">
-                    <div class="skills__item_bar" style="background-color: <%= item.color %>; width: <%= item.percent %>%"></div>
+                    <div class="skills__item_bar" style="background-color: <%= item.color %>;
+  width: <%= item.percent %>%;"></div>
                 </div>
                 <span class="skills__item_percent align-self-center"><%= item.percent %>%</span>
             </div>
@@ -29,14 +30,21 @@
 
         </div>
         <div class="logos animated row no-gutters" data-animation="slide-in-fwd" data-delay="0.2s">
-            <% var logosName = []; skills.logos.forEach(function(el){
-                logosName.push(el.toLowerCase());
-            }); for (var i = 0; i < logosName.length; i++) { %>
-            <% if (i == 0 || i == logosName.length / 2) { %><div class="col-md-6 d-flex justify-content-between justify-content-sm-around"><% } %>
-                <div class="logos__item">
-                    <img class="logos__item_img" src="/assets/img/logos/<%= logosName[i] %>.svg" alt="<%= skills.logos[i] %> Logo">
-                </div>
-            <% if (i == logosName.length / 2 - 1 || i == logosName.length - 1) { %></div><% } %>
+            <%
+            const logosName = [];
+            skills.logos.forEach((item) => { logosName.push(item.name.toLowerCase()); });
+
+            const rows = 4;
+            let k = 0;
+
+            for (let i = 0; i < rows; i++) { %>
+            <div class="col-md-6 d-flex justify-content-between justify-content-sm-around">
+                <% for (let j = 0; j < logosName.length; j++) { if (j % rows) continue;  %>
+                    <a class="logos__item" href="<%= skills.logos[k].link %>" target="_blank">
+                        <img class="logos__item_img" src="/assets/img/logos/<%= logosName[k] %>.svg" alt="<%= skills.logos[k].name %> Logo">
+                    </a>
+                <% k++; } %>
+            </div>
             <% } %>
         </div>
     </div>

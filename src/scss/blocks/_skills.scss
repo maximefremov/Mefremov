@@ -10,10 +10,9 @@
 
   &_name {
     color: $color_base-white;
-    display: block;
     font-weight: 400;
     line-height: 1.6;
-    padding: 10px 0;
+    padding: 8px 0;
     text-align: center;
     text-transform: uppercase;
     width: 160px;
@@ -32,7 +31,6 @@
   }
   &_percent {
     color: $color_blue-10;
-    display: block;
     font-size: Rem(14px);
     font-weight: 400;
     text-align: center;
@@ -45,8 +43,13 @@
 }
 
 .logos__item {
+  @include Transition(3);
   margin-top: 25px;
 
+  &:hover {
+    filter: grayscale(1);
+    transform: translate3d(0, -5px, 0);
+  }
   &_img {
     height: 60px;
     width: 60px;
@@ -56,10 +59,17 @@
 @include Screen-sm {
 
   .skills__item {
+    margin-bottom: 15px;
 
     &_name {
       font-size: Rem(14px);
-      padding: 9px 0;
+    }
+  }
+  .logos {
+    padding-top: 10px;
+
+    &__item {
+      margin-top: 20px;
     }
   }
 }
@@ -73,6 +83,13 @@
     }
     &_percent {
       font-size: Rem(12px);
+    }
+  }
+  .logos__item {
+
+    &_img {
+      height: 55px;
+      width: 55px;
     }
   }
 }

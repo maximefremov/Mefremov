@@ -1,4 +1,4 @@
-@import "../variables/containers";
+@import "../variables/breakpoints";
 @import "../variables/colors";
 @import "../variables/fonts";
 
@@ -10,14 +10,20 @@ $grid-breakpoints: (
   xl: $screen_lg-max + 1
 );
 
+$container-max-widths: (
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
 $font-family-base: $font_name-base;
 $line-height-base: $font_height-body;
 $font-weight-base: $font_weight-body;
 
 $body-color: $color_base-black;
 
-$link-color: $color_blue-20;
-$link-hover-color: $color_blue-10;
+$link-color: $color_green-10;
+$link-hover-color: $color_green-20;
 $link-hover-decoration: none;
 
 @import "~bootstrap/scss/bootstrap-reboot.scss";
