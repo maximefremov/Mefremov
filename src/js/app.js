@@ -32,6 +32,7 @@ export default class App {
 
     // Методы
     this.fancyBox()
+    this.portfolioWebp()
     this.sendMessage()
     this.wayPoints()
 
@@ -99,6 +100,35 @@ export default class App {
 
   isMobile() {
     this.scrollTo.offset = 0
+  }
+
+  portfolioWebp() {
+    function supportWebp() {
+      const elem = document.createElement('canvas')
+
+      if (!!(elem.getContext && elem.getContext('2d')))
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
+      else
+        return false
+    }
+
+    if (supportWebp) return
+
+    function getJpg(url) {
+      return url.replace(/\.[^/.]+$/, "") + '.jpg'
+    }
+
+    $('.portfolio__cover').each(function() {
+      const $this = $(this)
+      $this.attr('src', getJpg($this.attr('src')))
+      $this.attr('srcset', getJpg($this.attr('srcset')))
+    })
+
+    $('.portfolio__gallery_img').each(function() {
+      const $this = $(this)
+      $this.attr('data-src', getJpg($this.attr('data-src')))
+      $this.attr('data-retina', getJpg($this.attr('data-retina')))
+    })
   }
 
   removePreloader() {
@@ -198,7 +228,7 @@ export default class App {
             animationClass = elem.attr('data-animation'),
             animationDelay = elem.attr('data-delay')
 
-        elem.css({'animation-delay': animationDelay})
+        elem.css({'animationDelay': animationDelay})
 
         trigger = (triggerEl) ? trigger : elem
 

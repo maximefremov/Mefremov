@@ -21,7 +21,7 @@
             <div class="portfolio__item row justify-content-between">
                 <div class="portfolio__content animated col-sm-6" data-animation="slide-in-<%= aniSides[0] %>">
                     <h3 class="portfolio__content_title"><%= works[i].title %></h3>
-                    <span class="portfolio__content_desc"><%= works[i].desc %></span>
+                    <span class="portfolio__content_desc d-inline-block"><%= works[i].desc %></span>
                     <p class="portfolio__content_text"><%= works[i].text %></p>
                     <p class="portfolio__content_tags"><%= works[i].tags %></p>
                     <div class="portfolio__content_buttons animated d-flex align-items-center flex-column flex-lg-row"
@@ -32,15 +32,15 @@
                 </div>
                 <div class="animated col-xl-5 col-sm-6 align-self-center order-first order-sm-0"
                     data-animation="slide-in-<%= aniSides[1] %>">
-                    <img class="portfolio__cover" src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>.jpg"
-                        srcset="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>@2x.jpg 2x" alt="<%= works[i].title %>">
+                    <img class="portfolio__cover d-block" src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-mockup.webp"
+                        srcset="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-mockup@2x.webp 2x" alt="<%= works[i].title %>">
                 </div>
                 <ul class="portfolio__gallery d-none">
 
-                <% for (var j = 0; j < works[i].gallery; j++) { %>
+                <% for (var j = 0; j < works[i].count; j++) { %>
                     <li class="portfolio__gallery_img"
-                        data-src="/assets/portfolio/<%= works[i].id %>/gallery/<%= works[i].id %>_00<%= j + 1 %>.jpg"
-                        data-retina="/assets/portfolio/<%= works[i].id %>/gallery/<%= works[i].id %>_00<%= j + 1 %>@2x.jpg"></span>
+                        data-src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-<%= j + 1 %>.webp"
+                        data-retina="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-<%= j + 1 %>@2x.webp"></span>
                 <% } %>
 
                 </ul>

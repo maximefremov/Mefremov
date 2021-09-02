@@ -65,6 +65,26 @@ const commonConfig = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
       } : false
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(__dirname, 'docs/assets/img/favicon.png'),
+      prefix: '/favicons/',
+      cache: true,
+      inject: true,
+      favicons: {
+        start_url: '/',
+        lang: 'ru',
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: false,
+          coast: false,
+          favicons: true,
+          firefox: false,
+          windows: false,
+          yandex: false
+        }
+      }
     })
   ]
 }
@@ -99,7 +119,7 @@ if (isDev) {
       hot: true,
       port: 3000,
       static: [
-        { directory: path.resolve(__dirname, 'docs') },
+        { directory: path.resolve(__dirname, 'docs'), watch: false },
         { directory: path.resolve(__dirname, 'src/ejs') },
         { directory: path.resolve(__dirname, 'src/config') }
       ]
@@ -146,26 +166,6 @@ if (isProd) {
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash:8].css'
-      }),
-      new FaviconsWebpackPlugin({
-        logo: path.resolve(__dirname, 'docs/assets/img/favicon.png'),
-        prefix: '/favicons/',
-        cache: false,
-        inject: true,
-        favicons: {
-          start_url: '/',
-          lang: 'ru',
-          icons: {
-            android: true,
-            appleIcon: true,
-            appleStartup: false,
-            coast: false,
-            favicons: true,
-            firefox: false,
-            windows: false,
-            yandex: false
-          }
-        }
       })
     ],
     optimization: {
