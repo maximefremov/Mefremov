@@ -4,10 +4,10 @@
 
 $grid-breakpoints: (
   xs: 0,
-  sm: $screen_xs-max + 1,
-  md: $screen_sm-max + 1,
-  lg: $screen_md-max + 1,
-  xl: $screen_lg-max + 1
+  sm: $screen_xs-max,
+  md: $screen_sm-max,
+  lg: $screen_md-max,
+  xl: $screen_lg-max
 );
 
 $container-max-widths: (

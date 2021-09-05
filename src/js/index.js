@@ -12,4 +12,6 @@ import '@fancyapps/fancybox'
 // JS
 import App from './app.js'
 
-new App()
+$(function() {
+  new App()
+})

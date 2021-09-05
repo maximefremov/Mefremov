@@ -71,10 +71,3 @@
     @content;
   }
 }
-
-@mixin Screen-xl {
-
-  @media (min-width: $screen_xl-min) {
-    @content;
-  }
-}

@@ -1,8 +1,8 @@
-import ScrollTo from './modules/_scrollTo'
-import Menu     from './modules/_menu'
-import Header   from './modules/_header'
-import Parallax from './modules/_parallax'
-import vhCheck  from 'vh-check'
+import HeaderMenu     from './modules/_headerMenu'
+import HeaderParallax from './modules/_headerParallax'
+import HeaderTop      from './modules/_headerTop'
+import ScrollTo       from './modules/_scrollTo'
+import vhCheck        from 'vh-check'
 
 export default class App {
 
@@ -12,94 +12,75 @@ export default class App {
 
     // Константы
     const self = this
-    const TABLET_WIDTH = 768
-    const MOBILE_WIDTH = 575
 
-    // Переменные
-    let isTablet = false
-    let isMobile = false
-    let isSticky = false
-    let thisHeight, thisWidth, scrollTop
+    let windowHeight = 0
+    let windowWidth = 0
 
-    // Свойства
-    this.headerHeightSticky = 70
+    let headerTopHeight = 0
+    let headerMenuHeight = 0
+
+    const scrollOffset = 70
+    let scrollTop = 0
+
+    this.BREAKPOINTS = {
+      'XS': 575.98,
+      'SM': 767.98,
+      'MD': 991.98,
+      'LG': 1199.98
+    }
 
     // Объекты
-    this.scrollTo = new ScrollTo(this.headerHeightSticky)
-    this.menu = new Menu('.header__menu-wrapper', '.header__menu_toggle')
-    this.header = new Header('.header-top')
-    this.parallax = new Parallax('.header__hero', $(window).outerHeight())
+    this.headerMenu = new HeaderMenu('.header__menu-wrapper', '.header__menu_toggle')
+    this.headerParallax = new HeaderParallax('.header__hero', $(window).outerHeight())
+    this.headerTop = new HeaderTop('.header-top')
+    this.scrollTo = new ScrollTo()
+
+    // События
+    $(window).on('load', ()=> {
+      this.removePreloader()
+    })
+
+    $(window).on('resize', function () {
+      windowHeight = $(this).outerHeight()
+      windowWidth = $(this).outerWidth()
+
+      if (windowWidth <= self.BREAKPOINTS.XS) {
+        self.headerParallax.remove()
+        self.scrollTo.offset = 0
+      }
+      if (windowWidth >= self.BREAKPOINTS.XS) {
+        self.scrollTo.offset = scrollOffset
+      }
+      if (windowWidth >= self.BREAKPOINTS.SM) {
+        self.headerMenu.hide()
+      }
+
+      headerTopHeight = self.headerTop.getHeight
+      headerMenuHeight = self.headerMenu.getHeight
+    }).trigger('resize')
+
+    $(window).on('scroll', function () {
+      scrollTop = $(this).scrollTop()
+
+      if (windowWidth <= self.BREAKPOINTS.XS) {
+        if (scrollTop > headerMenuHeight) self.headerMenu.hide()
+      }
+      if (windowWidth >= self.BREAKPOINTS.XS) {
+        self.headerParallax.transform(scrollTop)
+
+        if (scrollTop >= windowHeight - headerTopHeight) {
+          self.headerTop.showSticky()
+        } else if (scrollTop < windowHeight - headerTopHeight) {
+          self.headerTop.hideSticky()
+        }
+      }
+    }).trigger('scroll')
 
     // Методы
     this.fancyBox()
     this.portfolioWebp()
     this.sendMessage()
     this.wayPoints()
-
-    // События
-    $(window).on('resize', function () {
-      thisHeight = $(this).outerHeight()
-      thisWidth = $(this).outerWidth()
-
-      if (thisWidth <= MOBILE_WIDTH && isMobile === false) {
-        isTablet = false
-        isMobile = true
-        self.isMobile()
-      } else if (thisWidth > MOBILE_WIDTH && thisWidth <= TABLET_WIDTH && isTablet === false) {
-        isTablet = true
-        isMobile = false
-        self.isTablet()
-      } else if (thisWidth > TABLET_WIDTH && (isTablet === true || isMobile === true)) {
-        isTablet = false
-        isMobile = false
-        self.isDesktop()
-      }
-
-      if (!isMobile)
-        self.parallax.height = thisHeight
-    })
-    $(window).trigger('resize')
-
-    $(window).on('scroll', function () {
-      scrollTop = $(this).scrollTop()
-
-      // Header Sticky
-      let offsetSticky = (isTablet || isMobile) ? 0 : 10
-      if (scrollTop >= thisHeight - self.headerHeightSticky - offsetSticky && isSticky === false) {
-        isSticky = true
-        self.header.showSticky()
-      } else if (scrollTop < thisHeight - self.headerHeightSticky - offsetSticky && isSticky === true) {
-        isSticky = false
-        self.header.hideSticky()
-      }
-
-      // Mobile Menu
-      if (scrollTop >= thisHeight && isMobile)
-        self.menu.hide()
-
-      // Hero Parallax
-      if (!isMobile && scrollTop < thisHeight)
-        self.parallax.transform(scrollTop)
-
-    })
-    $(window).trigger('scroll')
-
-    $(window).on('load', function () {
-      self.removePreloader()
-    })
-  }
-
-  isDesktop() {
-    this.scrollTo.offset = this.headerHeightSticky
-    this.menu.hide()
-  }
-
-  isTablet() {
-    this.scrollTo.offset = this.headerHeightSticky
-  }
-
-  isMobile() {
-    this.scrollTo.offset = 0
   }
 
   portfolioWebp() {
@@ -121,7 +102,7 @@ export default class App {
     $('.portfolio__cover').each(function() {
       const $this = $(this)
       $this.attr('src', getJpg($this.attr('src')))
-      $this.attr('srcset', getJpg($this.attr('srcset')))
+      if ($this.is('[srcset]')) $this.attr('srcset', getJpg($this.attr('srcset')))
     })
 
     $('.portfolio__gallery_img').each(function() {

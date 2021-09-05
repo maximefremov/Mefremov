@@ -1,7 +1,7 @@
 export default class ScrollTo {
 
-  constructor(offset) {
-    this._offset = offset
+  constructor() {
+    this._offset = 0
     this._easeInOutCubic()
     this._init()
   }
