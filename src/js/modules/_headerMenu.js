@@ -7,6 +7,9 @@ export default class HeaderMenu {
     this.$toggleEl.on('click', () => {
       this._toggle()
     })
+    this.$headerMenuEl.find('a[href^="#"]').on('click', () => {
+      this.hide()
+    })
   }
 
   _toggle() {

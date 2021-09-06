@@ -22,9 +22,13 @@ export default class App {
     const scrollOffset = 70
     let scrollTop = 0
 
+    let isSticky = false
+    let isXS = false
+    let isSM = false
+
     this.BREAKPOINTS = {
       'XS': 575.98,
-      'SM': 767.98,
+      'SM': 768.98,
       'MD': 991.98,
       'LG': 1199.98
     }
@@ -45,14 +49,25 @@ export default class App {
       windowWidth = $(this).outerWidth()
 
       if (windowWidth <= self.BREAKPOINTS.XS) {
-        self.headerParallax.remove()
-        self.scrollTo.offset = 0
+        if (!isXS) {
+          self.headerParallax.remove()
+          self.scrollTo.offset = 0
+        }
+        isXS = true
       }
       if (windowWidth >= self.BREAKPOINTS.XS) {
         self.scrollTo.offset = scrollOffset
+        isXS = false
+      }
+
+      if (windowWidth <= self.BREAKPOINTS.SM) {
+        isSM = false
       }
       if (windowWidth >= self.BREAKPOINTS.SM) {
-        self.headerMenu.hide()
+        if (!isSM) {
+          self.headerMenu.hide()
+        }
+        isSM = true
       }
 
       headerTopHeight = self.headerTop.getHeight
@@ -63,14 +78,23 @@ export default class App {
       scrollTop = $(this).scrollTop()
 
       if (windowWidth <= self.BREAKPOINTS.XS) {
-        if (scrollTop > headerMenuHeight) self.headerMenu.hide()
+        // Hide mobile menu
+        if (scrollTop > headerMenuHeight) {
+          self.headerMenu.hide()
+        }
       }
       if (windowWidth >= self.BREAKPOINTS.XS) {
-        self.headerParallax.transform(scrollTop)
+        // Hero parallax
+        if (scrollTop < windowHeight) {
+          self.headerParallax.transform(scrollTop)
+        }
 
-        if (scrollTop >= windowHeight - headerTopHeight) {
+        // Sticky header
+        if (scrollTop >= windowHeight - headerTopHeight && !isSticky) {
+          isSticky = true
           self.headerTop.showSticky()
-        } else if (scrollTop < windowHeight - headerTopHeight) {
+        } else if (scrollTop < windowHeight - headerTopHeight && isSticky) {
+          isSticky = false
           self.headerTop.hideSticky()
         }
       }
@@ -156,24 +180,16 @@ export default class App {
       success: 'Сообщение успешно отправлено!',
       error: 'Ошибка отправки сообщения!'
     }
-    const messagesEng = {
-      process: 'Please wait...',
-      success: 'Message sent successfully!',
-      error: 'Failed to send message!'
-    }
-    const formEl = $('.contact__form')
-    const alertEl = $('.contact__form_alert')
-    const buttonEl = $('.contact__form_submit')
-    let buttonElVal = buttonEl.val()
+    const $formEl = $('.contact__form')
+    const $alertEl = $('.contact__form_alert')
+    const $buttonEl = $('.contact__form_submit')
+    let buttonElVal = $buttonEl.val()
 
-    const lang = $('html').attr('lang')
-    if (lang === 'en') messages = messagesEng
-
-    formEl.submit(function (e) {
+    $formEl.on('submit', function (e) {
       e.preventDefault()
 
-      formEl.addClass('inactive')
-      buttonEl.val(messages.process)
+      $formEl.addClass('inactive')
+      $buttonEl.val(messages.process)
 
       $.ajax({
         type: 'POST',
@@ -181,17 +197,17 @@ export default class App {
         url: 'https://formcarry.com/s/r1L5qvKGX',
         data: $(this).serialize(),
         success: function (response) {
-          if (response.status === 'success') alertEl.addClass('active success').text(messages.success)
+          if (response.status === 'success') $alertEl.addClass('active success').text(messages.success)
           else this.error()
         },
         error: function () {
-          alertEl.addClass('active error').text(messages.error)
+          $alertEl.addClass('active error').text(messages.error)
         },
         complete: function () {
           setTimeout(function () {
-            alertEl.removeClass('active success error')
-            buttonEl.val(buttonElVal)
-            formEl.trigger('reset').removeClass('inactive')
+            $alertEl.removeClass('active success error')
+            $buttonEl.val(buttonElVal)
+            $formEl.trigger('reset').removeClass('inactive')
           }, 3500)
         }
       })
