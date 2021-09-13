@@ -32,16 +32,16 @@
                 </div>
                 <div class="animated col-xl-5 col-sm-6 align-self-center order-first order-sm-0"
                     data-animation="slide-in-<%= aniSides[1] %>">
-                    <img class="portfolio__cover blur d-sm-block d-none" src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-mockup.webp">
-                    <img class="portfolio__cover d-block" src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-mockup.webp"
-                        srcset="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-mockup@2x.webp 2x" alt="<%= works[i].title %>">
+                    <img class="portfolio__cover blur d-sm-block d-none" src="/assets/portfolio/<%= works[i].id %>-mockup.webp">
+                    <img class="portfolio__cover d-block" src="/assets/portfolio/<%= works[i].id %>-mockup.webp"
+                        srcset="/assets/portfolio/<%= works[i].id %>-mockup@2x.webp 2x" alt="<%= works[i].title %>">
                 </div>
                 <ul class="portfolio__gallery d-none">
 
                 <% for (var j = 0; j < works[i].count; j++) { %>
                     <li class="portfolio__gallery_img"
-                        data-src="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-<%= j + 1 %>.webp"
-                        data-retina="/assets/portfolio/<%= works[i].id %>/<%= works[i].id %>-<%= j + 1 %>@2x.webp"></span>
+                        data-src="/assets/portfolio/<%= works[i].id %>-<%= j + 1 %>.webp"
+                        data-retina="/assets/portfolio/<%= works[i].id %>-<%= j + 1 %>@2x.webp"></span>
                 <% } %>
 
                 </ul>

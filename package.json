@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "watch": "webpack serve --mode development"
+    "watch": "webpack serve --mode development",
+    "portfolio": "node imagemin.mjs"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,11 @@
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.3.2",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^6.0.0",
     "mini-css-extract-plugin": "^2.2.2",
     "node-sass": "^6.0.1",
+    "png-to-jpeg": "^1.0.1",
     "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
     "sass-loader": "^12.1.0",

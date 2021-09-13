@@ -18,7 +18,7 @@ module.exports = {
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, Gulp',
     site: 'http://btkrus.mefremov.ru',
     title: 'Брянская топливная компания',
-    desc: 'Разработка дизайна, создание темы для WordPress',
+    desc: 'Разработка дизайна, логотипа, создание темы для WordPress',
     text: 'Корпоративный сайт компании, занимающейся продажей и доставкой светлых нефтепродуктов от крупнейших Российских предприятий-переработчиков. Ныне не действующий.'
   }, {
     id: '003-gruzmos',
@@ -29,12 +29,12 @@ module.exports = {
     desc: 'Доработка и расширение функционала сайта на ModX',
     text: 'Сайт автотранспортной компании, занимающейся транспортировкой различных видов грузов на территории РФ. Перевозка спецтехники, оборудования, мебели, такелажные работы, а также перевозка сборных грузов.'
   }, {
-    id: '004-remtel',
+    id: '004-remtel32',
     count: 2,
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, Gulp',
     site: 'https://remtel32.ru',
     title: 'ММС32 - Мобильный мульти-сервис',
-    desc: 'Разработка дизайна, создание темы для WordPress',
+    desc: 'Разработка дизайна, логотипа, создание темы для WordPress',
     text: ''
   }, {
     id: '005-bnroil',
@@ -42,7 +42,7 @@ module.exports = {
     tags: 'HTML, SCSS, Bootstrap, BEM, Responsive design, JS, jQuery, PHP, WordPress, WooCommerce, Gulp',
     site: 'https://bnroil.ru',
     title: 'БрянскНефтеРесурс',
-    desc: 'Разработка дизайна, создание темы для WordPress, наполнение контентом',
+    desc: 'Разработка дизайна, логотипа, создание темы для WordPress, наполнение контентом',
     text: ''
   }, {
     id: '006-zvezda',
