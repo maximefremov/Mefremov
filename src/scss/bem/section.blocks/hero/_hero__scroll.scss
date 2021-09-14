@@ -1,0 +1,33 @@
+.hero__scroll {
+  bottom: 0;
+  color: $color_grey-20;
+  margin-bottom: 60px;
+  position: absolute;
+
+  &:hover {
+    color: $color_blue-10;
+  }
+  &:hover &-arrow {
+    fill: $color_blue-10;
+  }
+  &-more {
+    color: inherit;
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+  &-arrow {
+    animation: jumpDownUp 4s infinite 4s;
+    display: block;
+    fill: $color_grey-20;
+    height: 15px;
+    margin: 0 auto;
+    width: 25px;
+  }
+}
+
+@include Screen-sm {
+
+  .hero__scroll {
+    margin-bottom: 40px;
+  }
+}

@@ -1,110 +1,110 @@
-import HeaderMenu     from './modules/_headerMenu'
-import HeaderParallax from './modules/_headerParallax'
-import HeaderTop      from './modules/_headerTop'
-import ScrollTo       from './modules/_scrollTo'
-import vhCheck        from 'vh-check'
+import Header         from './modules/_header';
+import HeaderMenu     from './modules/_headerMenu';
+import HeroParallax   from './modules/_heroParallax';
+import ScrollTo       from './modules/_scrollTo';
+import vhCheck        from 'vh-check';
 
 export default class App {
 
   constructor() {
     // Для мобильных устройств (для отступа адресной строки)
-    vhCheck('browser-address-bar')
+    vhCheck('browser-address-bar');
 
     // Константы
-    const self = this
+    const self = this;
 
-    let windowHeight = 0
-    let windowWidth = 0
+    let windowHeight = 0,
+        windowWidth = 0;
 
-    let headerTopHeight = 0
-    let headerMenuHeight = 0
+    let headerHeight = 0,
+        headerMenuHeight = 0;
 
-    const scrollOffset = 70
-    let scrollTop = 0
+    const scrollOffset = 70;
+    let scrollTop = 0;
 
-    let isSticky = false
-    let isXS = false
-    let isSM = false
+    let isSticky = false;
+    let isXS = false;
+    let isSM = false;
 
     this.BREAKPOINTS = {
       'XS': 575.98,
       'SM': 768.98,
       'MD': 991.98,
       'LG': 1199.98
-    }
+    };
 
     // Объекты
-    this.headerMenu = new HeaderMenu('.header__menu-wrapper', '.header__menu_toggle')
-    this.headerParallax = new HeaderParallax('.header__hero', $(window).outerHeight())
-    this.headerTop = new HeaderTop('.header-top')
-    this.scrollTo = new ScrollTo()
+    this.header = new Header();
+    this.headerMenu = new HeaderMenu();
+    this.heroParallax = new HeroParallax($(window).outerHeight());
+    this.scrollTo = new ScrollTo();
 
     // События
     $(window).on('load', ()=> {
-      this.removePreloader()
-    })
+      this.removePreloader();
+    });
 
     $(window).on('resize', function () {
-      windowHeight = $(this).outerHeight()
-      windowWidth = $(this).outerWidth()
+      windowHeight = $(this).outerHeight();
+      windowWidth = $(this).outerWidth();
 
       if (windowWidth <= self.BREAKPOINTS.XS) {
         if (!isXS) {
-          self.headerParallax.remove()
-          self.scrollTo.offset = 0
+          self.heroParallax.remove();
+          self.scrollTo.setOffset = 0;
         }
-        isXS = true
+        isXS = true;
       }
       if (windowWidth >= self.BREAKPOINTS.XS) {
-        self.scrollTo.offset = scrollOffset
-        isXS = false
+        self.scrollTo.setOffset = scrollOffset;
+        isXS = false;
       }
 
       if (windowWidth <= self.BREAKPOINTS.SM) {
-        isSM = false
+        isSM = false;
       }
       if (windowWidth >= self.BREAKPOINTS.SM) {
         if (!isSM) {
-          self.headerMenu.hide()
+          self.headerMenu.hide();
         }
-        isSM = true
+        isSM = true;
       }
 
-      headerTopHeight = self.headerTop.getHeight
-      headerMenuHeight = self.headerMenu.getHeight
-    }).trigger('resize')
+      headerHeight = self.header.getHeight;
+      headerMenuHeight = self.headerMenu.getHeight;
+    }).trigger('resize');
 
     $(window).on('scroll', function () {
-      scrollTop = $(this).scrollTop()
+      scrollTop = $(this).scrollTop();
 
       if (windowWidth <= self.BREAKPOINTS.XS) {
         // Hide mobile menu
         if (scrollTop > headerMenuHeight) {
-          self.headerMenu.hide()
+          self.headerMenu.hide();
         }
       }
       if (windowWidth >= self.BREAKPOINTS.XS) {
         // Hero parallax
         if (scrollTop < windowHeight) {
-          self.headerParallax.transform(scrollTop)
+          self.heroParallax.transform(scrollTop);
         }
 
         // Sticky header
-        if (scrollTop >= windowHeight - headerTopHeight && !isSticky) {
-          isSticky = true
-          self.headerTop.showSticky()
-        } else if (scrollTop < windowHeight - headerTopHeight && isSticky) {
-          isSticky = false
-          self.headerTop.hideSticky()
+        if (scrollTop >= windowHeight - headerHeight && !isSticky) {
+          isSticky = true;
+          self.header.showSticky();
+        } else if (scrollTop < windowHeight - headerHeight && isSticky) {
+          isSticky = false;
+          self.header.hideSticky();
         }
       }
-    }).trigger('scroll')
+    }).trigger('scroll');
 
     // Методы
-    this.fancyBox()
-    this.portfolioWebp()
-    this.sendMessage()
-    this.wayPoints()
+    this.fancyBox();
+    this.portfolioWebp();
+    this.wayPoints();
+    this.sendMessage();
   }
 
   portfolioWebp() {
@@ -120,7 +120,7 @@ export default class App {
     if (supportWebp) return
 
     function getJpg(url) {
-      return url.replace(/\.[^/.]+$/, "") + '.jpg'
+      return url.replace(/webp/i, 'jpg')
     }
 
     $('.portfolio__cover').each(function() {
@@ -137,13 +137,14 @@ export default class App {
   }
 
   removePreloader() {
-    setTimeout(function () {
-      $('body').removeClass('compensate-for-scrollbar')
-      $('.preloader').removeClass('visible')
-    }, 1000)
+    setTimeout(() => {
+      $('body').removeClass('compensate-for-scrollbar');
+      $('.preloader').removeClass('preloader--active');
+    }, 1000);
   }
 
   fancyBox() {
+    /*
     const pixelRatio = window.devicePixelRatio || 1
 
     $('button[value="gallery"]').on('click', function () {
@@ -172,6 +173,7 @@ export default class App {
         }
       })
     })
+    */
   }
 
   sendMessage() {
@@ -196,15 +198,15 @@ export default class App {
         dataType: 'json',
         url: 'https://formcarry.com/s/r1L5qvKGX',
         data: $(this).serialize(),
-        success: function (response) {
+        success: (response) => {
           if (response.status === 'success') $alertEl.addClass('active success').text(messages.success)
           else this.error()
         },
-        error: function () {
+        error: () => {
           $alertEl.addClass('active error').text(messages.error)
         },
-        complete: function () {
-          setTimeout(function () {
+        complete: () => {
+          setTimeout(() => {
             $alertEl.removeClass('active success error')
             $buttonEl.val(buttonElVal)
             $formEl.trigger('reset').removeClass('inactive')
@@ -238,7 +240,7 @@ export default class App {
       })
     }
 
-    setTimeout(function () {
+    setTimeout(() => {
       onScrollInit($('.animated'))
     }, 10)
   }

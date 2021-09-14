@@ -1,35 +1,37 @@
 export default class ScrollTo {
 
   constructor() {
-    this._offset = 0
-    this._easeInOutCubic()
-    this._init()
-  }
+    const self = this;
 
-  _init() {
-    const self = this
-    let blockEl = null
-    let scrollTop = 0
+    this.offset = 0;
+    this.scrollTop = 0;
 
     $('a[href^="#"]').on('click', function (e) {
-      e.preventDefault()
-      blockEl = $(this).attr('href')
+      e.preventDefault();
+      const sectionName = $(this).attr('href');
 
-      if (blockEl === '#') scrollTop = 0
-      else scrollTop = $(blockEl).offset().top - self._offset
+      if (sectionName === '#') {
+        self.scrollTop = 0;
+      } else {
+        const $blockEl = $(sectionName);
+        if (!$blockEl.length) return;
+        self.scrollTop = $blockEl.offset().top - self.offset;
+      }
 
-      $('html, body').animate({scrollTop: scrollTop}, 820, 'easeInOutCubic')
-    })
+      $('html, body').animate({scrollTop: self.scrollTop}, 820, 'easeInOutCubic');
+    });
+
+    this._easeInOutCubic();
   }
 
   _easeInOutCubic() {
     $.easing.easeInOutCubic = function (x) {
-      return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2
+      return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
     }
   }
 
-  set offset(offset) {
-    this._offset = offset
+  set setOffset(offset) {
+    this.offset = offset;
   }
 
 }

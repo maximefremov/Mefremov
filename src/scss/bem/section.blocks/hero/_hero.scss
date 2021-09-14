@@ -1,0 +1,17 @@
+.hero {
+  color: $color_base-white;
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  will-change: transform, opacity;
+
+  &__container {
+    height: 100%;
+  }
+}
+
+@import "hero__content";
+@import "hero__title";
+@import "hero__divider";
+@import "hero__career";
+@import "hero__scroll";

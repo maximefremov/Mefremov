@@ -1,0 +1,39 @@
+.title {
+
+  &__h1 {
+    font-size: Rem(48px);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  &__h2 {
+    font-size: Rem(38px);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+@include Screen-md {
+
+  .title {
+
+    &__h1 {
+      font-size: Rem(42px);
+    }
+    &__h2 {
+      font-size: Rem(36px);
+    }
+  }
+}
+
+@include Screen-xs {
+
+  .title {
+
+    &__h1 {
+      font-size: Rem(38px);
+    }
+    &__h2 {
+      font-size: Rem(32px);
+    }
+  }
+}

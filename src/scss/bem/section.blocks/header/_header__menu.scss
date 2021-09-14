@@ -1,0 +1,85 @@
+.header__menu {
+  font-size: Rem(18px);
+  text-transform: uppercase;
+
+  &-item {
+    color: $color_base-white;
+    display: inline-flex;
+  }
+  &-item + &-item::before {
+    content: "-";
+    font-size: Rem(24px);
+    line-height: 0;
+    margin: 0 25px;
+  }
+  &-link {
+    color: inherit;
+    font-weight: 300;
+
+    &:hover {
+      color: $color_grey-20;
+    }
+  }
+}
+
+@include Screen-lg {
+
+  .header__menu {
+
+    &-item + &-item::before {
+      margin: 0 20px;
+    }
+  }
+}
+
+@include Screen-md {
+
+  .header__menu {
+    font-size: Rem(16px);
+
+    &-item:first-child, &-item:nth-child(2)::before {
+      display: none;
+    }
+  }
+}
+
+@include Screen-sm {
+
+  .header__menu {
+    @include Transition(4);
+    background-color: rgba($color_blue-20, 0.95);
+    font-size: Rem(18px);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: $header_height-xs;
+    transform: translateY(-35px);
+    visibility: hidden;
+    width: 100%;
+
+    &--active {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    &-inner {
+      padding: 25px 0;
+    }
+    &-item {
+      display: block;
+      text-align: center;
+      width: 100%;
+
+      &::before {
+        display: none;
+      }
+    }
+    &-item:first-child {
+      display: block;
+    }
+    &-link {
+      display: block;
+      padding: 15px 0;
+    }
+  }
+}

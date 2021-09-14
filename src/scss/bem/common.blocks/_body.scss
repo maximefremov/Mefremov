@@ -1,0 +1,36 @@
+.body {
+  color: $color_base-black;
+  font: 300 #{$font_size-base}/1.4 $font_name-base;
+  min-width: 320px;
+
+  &::before, &::after {
+    content: "";
+    height: 100vh;
+    left: 0;
+    min-height: 560px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: $zindex-negative;
+  }
+  &::before {
+    animation: zoomOutIn 40s linear infinite;
+    background: $color_blue-20 url("/assets/img/header-bg.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+    image-rendering: pixelated;
+  }
+  &::after {
+    background-color: rgba($color_base-black, 0.45);
+  }
+}
+
+@include Screen-xs {
+
+  body {
+
+    &::before {
+      animation: none;
+    }
+  }
+}

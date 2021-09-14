@@ -1,20 +1,15 @@
-// Переменные
 @import "variables/breakpoints";
 @import "variables/colors";
 @import "variables/fonts";
+@import "variables/header";
+@import "variables/zindex";
 
-// Функции и миксины
 @import "utils/functions";
 @import "utils/mixins";
 
-// Базовые стили для тегов и блоков
 @import "base/fonts";
-@import "base/animation";
+@import "base/animations";
 @import "base/typography";
-@import "base/buttons";
 @import "base/forms";
 
-// Блоки
-@import "partials/header";
-@import "partials/main";
-@import "partials/footer";
+@import "bem/bem";

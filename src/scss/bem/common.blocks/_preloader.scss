@@ -8,9 +8,13 @@
   top: 0;
   visibility: hidden;
   width: 100%;
-  z-index: 999;
+  z-index: $zindex-50;
 
-  &_spinner {
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &__spinner {
     animation: spin 620ms infinite linear;
     border: 2px solid $color_grey-30;
     border-radius: 100%;
@@ -21,9 +25,5 @@
     position: absolute;
     top: 50%;
     width: 56px;
-  }
-  &.visible {
-    opacity: 1;
-    visibility: visible;
   }
 }

@@ -1,0 +1,12 @@
+.hero__title {
+  letter-spacing: 12px;
+  margin: 0 -10px 0 0;
+
+  &-name {
+    display: inline-block;
+  }
+  &-name::first-letter {
+    color: $color_green-10;
+    font-family: $font_name-second;
+  }
+}

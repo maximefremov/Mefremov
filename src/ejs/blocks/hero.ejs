@@ -1,0 +1,17 @@
+<% const hero = require('../../config/hero.js'); %>
+
+<section id="<%= hero.id %>" class="hero">
+    <div class="hero__container container d-flex flex-column align-items-center justify-content-center">
+        <div class="hero__content">
+            <h1 class="hero__title title__h1">
+                <span class="hero__title-name"><%= hero.firstName %></span> <span class="hero__title-name"><%= hero.lastName %></span>
+                <hr class="hero__divider section__title-divider">
+            </h1>
+            <p class="hero__career"><%= hero.careerText %></p>
+        </div>
+        <a class="hero__scroll" href="<%= hero.scrollMore.link %>">
+            <p class="hero__scroll-more"><%= hero.scrollMore.text %></p>
+            <span class="hero__scroll-arrow"><%= icons.arrow %></span>
+        </a>
+    </div>
+</section>

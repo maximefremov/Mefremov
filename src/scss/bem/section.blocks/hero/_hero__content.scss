@@ -1,0 +1,15 @@
+.hero__content {
+  position: relative;
+  text-align: center;
+  top: -30px;
+}
+
+@include Screen-sm {
+
+  .hero {
+
+    &__content {
+      top: -20px;
+    }
+  }
+}

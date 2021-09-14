@@ -1,0 +1,38 @@
+.header {
+  @include Transition(2);
+  background-color: rgba($color_blue-10, 0.2);
+  height: $header_height-md;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $zindex-20;
+
+  &--sticky {
+    background-color: rgba($color_base-black, 0.8);
+    height: $header_height-xs;
+  }
+  &__inner {
+    height: 100%;
+  }
+}
+
+@include Screen-sm {
+
+  .header {
+    background-color: rgba($color_base-black, 0.4);
+    height: $header_height-xs;
+  }
+}
+
+@include Screen-xs {
+
+  .header {
+    position: absolute;
+  }
+}
+
+@import "header__logo";
+@import "header__menu";
+@import "header__toggle";
+@import "header__contacts";

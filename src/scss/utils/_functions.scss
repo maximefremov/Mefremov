@@ -16,5 +16,5 @@
   @if $target == 0 {
     @return 0;
   }
-  @return $target / $font_size-body + 0rem;
+  @return $target / $font_size-base + 0rem;
 }

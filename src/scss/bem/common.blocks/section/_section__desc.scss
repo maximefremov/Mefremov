@@ -1,0 +1,12 @@
+.section__desc {
+  font-size: Rem(18px);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+@include Screen-md {
+
+  .section__desc {
+    margin-bottom: 30px;
+  }
+}

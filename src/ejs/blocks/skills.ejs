@@ -1,35 +1,26 @@
 <% const skills = require('../../config/skills.js'); %>
 
-<section id="<%= skills.id %>" class="block block-white">
+<section id="<%= skills.id %>" class="skills section section--white">
     <div class="container">
-        <div class="block__title row">
-            <div class="col">
-                <h2 class="animated" data-animation="slide-in-left">
-                    <%= skills.header %>
-                    <hr class="animated" data-animation="slide-in-left" data-delay="0.4s">
-                </h2>
-                <p class="animated" data-animation="fade-in" data-delay="0.2s"><%= skills.desc %></p>
-            </div>
-        </div>
-        <div class="skills animated row" data-animation="filled">
-
+        <h2 class="title__h2 section__title animated" data-animation="slide-in-left">
+            <%= skills.header %>
+            <hr class="section__title-divider animated" data-animation="slide-in-left" data-delay="0.4s">
+        </h2>
+        <p class="section__desc animated" data-animation="fade-in" data-delay="0.2s"><%= skills.desc %></p>
+        <div class="skills__tech animated row" data-animation="filled">
         <% for (let i = 0; i < skills.tools.length; i++) { var item = skills.tools[i]; %>
             <% if (i == 0 || i == skills.tools.length / 2) { %><div class="col-md-6"><% } %>
-
-            <div class="skills__item d-flex">
-                <span class="skills__item_name" style="background-color: <%= item.color %>;"><%= item.name %></span>
-                <div class="skills__item_bar-wrapper flex-grow-1">
-                    <div class="skills__item_bar" style="background-color: <%= item.color %>;
-  width: <%= item.percent %>%;"></div>
+            <div class="skills__tech-item d-flex">
+                <span class="skills__tech-name" style="background-color: <%= item.color %>;"><%= item.name %></span>
+                <div class="skills__tech-bar-outer flex-grow-1">
+                    <div class="skills__tech-bar" style="background-color: <%= item.color %>; width: <%= item.percent %>%;"></div>
                 </div>
-                <span class="skills__item_percent align-self-center"><%= item.percent %>%</span>
+                <span class="skills__tech-percent align-self-center"><%= item.percent %>%</span>
             </div>
-
             <% if (i == skills.tools.length / 2 - 1 || i == skills.tools.length - 1) { %></div><% } %>
         <% } %>
-
         </div>
-        <div class="logos animated row no-gutters" data-animation="slide-in-fwd" data-delay="0.2s">
+        <div class="skills__logos animated row no-gutters" data-animation="slide-in-fwd" data-delay="0.2s">
             <%
             const logosName = [];
             skills.logos.forEach((item) => { logosName.push(item.name.toLowerCase()); });
@@ -40,8 +31,8 @@
             for (let i = 0; i < rows; i++) { %>
             <div class="col-md-6 d-flex justify-content-between justify-content-sm-around">
                 <% for (let j = 0; j < logosName.length; j++) { if (j % rows) continue;  %>
-                    <a class="logos__item" href="<%= skills.logos[k].link %>" target="_blank">
-                        <img class="logos__item_img" src="/assets/img/logos/<%= logosName[k] %>.svg" alt="<%= skills.logos[k].name %> Logo">
+                    <a class="skills__logos-item" href="<%= skills.logos[k].link %>" target="_blank">
+                        <img class="skills__logos-img" src="/assets/img/logos/<%= logosName[k] %>.svg" alt="<%= skills.logos[k].name %> Logo">
                     </a>
                 <% k++; } %>
             </div>

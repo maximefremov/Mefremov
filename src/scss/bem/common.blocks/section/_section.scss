@@ -1,0 +1,28 @@
+.section {
+  overflow: hidden;
+  padding: 100px 0;
+
+  &--white {
+    background-color: $color_base-white;
+  }
+  &--brown {
+    background-color: $color_grey-10;
+  }
+}
+
+@include Screen-md {
+
+  .section {
+    padding: 80px 0;
+  }
+}
+
+@include Screen-sm {
+
+  .section {
+    padding: 60px 0;
+  }
+}
+
+@import "section__title";
+@import "section__desc";

@@ -1,22 +1,18 @@
 <% const about = require('../../config/about.js'); %>
 
-<section id="<%= about.id %>" class="block block-white">
+<section id="<%= about.id %>" class="about section section--white">
     <div class="container">
-        <div class="block__title row">
-            <div class="col">
-                <h2 class="animated" data-animation="slide-in-left">
-                    <%= about.header %>
-                    <hr class="animated" data-animation="slide-in-left" data-delay="0.4s">
-                </h2>
-            </div>
-        </div>
-        <div class="about row align-items-center justify-content-center">
-            <div class="about__photo d-flex align-items-center justify-content-center col-xl-2 col-md-3" data-animation="fade-in" data-delay="0.4s">
-                <div class="about__photo-wrapper">
-                    <img class="about__photo_img" alt="Maxim Efremov" src="/assets/img/photo.jpg" srcset="/assets/img/photo@2x.jpg 2x">
+        <h2 class="title__h2 section__title animated" data-animation="slide-in-left">
+            <%= about.header %>
+            <hr class="section__title-divider animated" data-animation="slide-in-left" data-delay="0.4s">
+        </h2>
+        <div class="row justify-content-center">
+            <div class="col-xl-2 col-md-3 d-flex align-items-center justify-content-center" data-animation="fade-in" data-delay="0.4s">
+                <div class="about__photo">
+                    <img class="about__photo-img" alt="Maxim Efremov" src="/assets/img/photo.jpg" srcset="/assets/img/photo@2x.jpg 2x">
                 </div>
             </div>
-            <article class="about__article animated col-xl-9 col-md-9" data-animation="slide-in-right">
+            <article class="article animated col-xl-9 col-md-9" data-animation="slide-in-right">
                 <%= about.article %>
             </article>
         </div>

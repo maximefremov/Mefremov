@@ -1,0 +1,9 @@
+.header__logo {
+  font-family: $font_name-second;
+  font-size: Rem(32px);
+  line-height: 0.95;
+
+  &-link {
+    color: $color_green-10 !important;
+  }
+}

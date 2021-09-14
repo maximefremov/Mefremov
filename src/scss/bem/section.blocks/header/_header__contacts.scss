@@ -1,0 +1,7 @@
+.header__contacts {
+  font-size: Rem(13px);
+
+  &_link + &_link {
+    margin-top: 3px;
+  }
+}

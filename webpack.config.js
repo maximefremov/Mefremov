@@ -51,7 +51,7 @@ const commonConfig = {
       isProd: isProd,
       isDev: isDev
     }),
-    new StyleLintPlugin(),
+    //new StyleLintPlugin(),
     new HtmlWebpackPlugin({
       template: './src/ejs/index.ejs',
       filename: 'index.html',

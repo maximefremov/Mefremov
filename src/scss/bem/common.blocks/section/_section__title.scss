@@ -1,0 +1,48 @@
+.section__title {
+  color: $color_blue-20;
+  letter-spacing: 3px;
+  margin: -15px 0 50px;
+  text-align: center;
+
+  &::first-letter {
+    color: $color_green-10;
+    font-family: $font_name-second;
+    font-size: Rem(42px);
+    margin-right: 1.5px;
+  }
+  &-divider {
+    background-color: $color_grey-20;
+    border: 0;
+    height: 3px;
+    margin: 35px auto 0;
+    width: 100px;
+  }
+}
+
+@include Screen-md {
+
+  .section__title {
+    letter-spacing: 2px;
+    margin: -10px 0 30px;
+
+    &::first-letter {
+      font-size: Rem(40px);
+    }
+    &::after {
+      margin-top: 25px;
+    }
+    &-divider {
+      margin-top: 25px;
+    }
+  }
+}
+
+@include Screen-xs {
+
+  .section__title {
+
+    &::first-letter {
+      font-size: Rem(36px);
+    }
+  }
+}

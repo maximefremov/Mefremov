@@ -1,8 +1,8 @@
 <% const portfolio = require('../../config/portfolio.js'); %>
 
-<section id="<%= portfolio.id %>" class="block block-brown">
+<section id="<%= portfolio.id %>" class="block block--brown">
     <div class="container">
-        <div class="block__title row">
+        <div class="row block__title">
             <div class="col">
                 <h2 class="animated" data-animation="slide-in-right">
                     <%= portfolio.header %>
@@ -32,9 +32,9 @@
                 </div>
                 <div class="animated col-xl-5 col-sm-6 align-self-center order-first order-sm-0"
                     data-animation="slide-in-<%= aniSides[1] %>">
-                    <img class="portfolio__cover blur d-sm-block d-none" src="/assets/portfolio/<%= works[i].id %>-mockup.webp">
                     <img class="portfolio__cover d-block" src="/assets/portfolio/<%= works[i].id %>-mockup.webp"
                         srcset="/assets/portfolio/<%= works[i].id %>-mockup@2x.webp 2x" alt="<%= works[i].title %>">
+                    <img class="portfolio__cover blur d-sm-block d-none" src="/assets/portfolio/<%= works[i].id %>-mockup.webp">
                 </div>
                 <ul class="portfolio__gallery d-none">
 

@@ -1,0 +1,39 @@
+.skills__logos {
+  padding-top: 20px;
+
+  &-item {
+    @include Transition(3);
+    margin-top: 25px;
+
+    &:hover {
+      filter: grayscale(1);
+      transform: translate3d(0, -5px, 0);
+    }
+  }
+  &-img {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@include Screen-sm {
+
+  .skills__logos {
+    padding-top: 10px;
+
+    &-item {
+      margin-top: 20px;
+    }
+  }
+}
+
+@include Screen-xs {
+
+  .skills__logos {
+
+    &-img {
+      height: 55px;
+      width: 55px;
+    }
+  }
+}
