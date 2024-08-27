@@ -1,0 +1,31 @@
+.portfolio__item {
+
+  &::after {
+    background-color: $color_grey-20;
+    content: "";
+    display: block;
+    height: 1px;
+    margin: 30px 15px;
+    order: 2;
+    padding: 0 15px;
+    width: 100%;
+  }
+  &:last-child::after {
+    display: none;
+  }
+  &:nth-child(odd) .portfolio__content {
+    order: 1;
+  }
+  &:nth-child(even) .portfolio__cover.blur {
+    transform: translate3d(-20px, 20px, 0);
+  }
+}
+
+@include Screen-lg {
+
+  .portfolio__item:nth-child(even) {
+    .portfolio__cover.blur {
+      transform: translate3d(-15px, 15px, 0);
+    }
+  }
+}

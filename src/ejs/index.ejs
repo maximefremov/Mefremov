@@ -9,5 +9,8 @@ const globals = { icons, metrics }
 <main>
     <%= require('./blocks/hero.ejs')(globals) %>
     <%= require('./blocks/about.ejs')() %>
+    <%= require('./blocks/portfolio.ejs')() %>
     <%= require('./blocks/skills.ejs')() %>
 </main>
+
+<%= require('./partials/footer.ejs')(globals) %>

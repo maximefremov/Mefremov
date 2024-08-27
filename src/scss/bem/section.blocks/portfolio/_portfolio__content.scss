@@ -1,0 +1,63 @@
+.portfolio__content {
+  margin-bottom: 15px;
+  margin-top: 15px;
+
+  &_desc, &_tags {
+    color: $color_blue-10;
+    font-size: Rem(12px);
+    text-transform: uppercase;
+  }
+  &_title {
+    color: $color_blue-20;
+    margin-bottom: 10px;
+  }
+  &_desc {
+    border-left: 5px solid $color_green-10;
+    font-weight: 700;
+    line-height: 20px;
+    padding-left: 10px;
+  }
+  &_text, &_tags {
+    margin: 30px 0;
+  }
+  &_text {
+    color: $color_grey-30;
+  }
+  &_tags {
+    font-style: italic;
+    font-weight: 400;
+  }
+  &_buttons .button + .button {
+    margin-left: 20px;
+  }
+}
+
+@include Screen-md {
+
+  .portfolio__content {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    &_buttons .button + .button {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+}
+
+@include Screen-sm {
+
+  .portfolio__content {
+
+    &_text, &_tags {
+      margin: 20px 0;
+    }
+  }
+}
+
+@include Screen-xs {
+
+  .portfolio__content {
+    margin-top: 10px;
+  }
+}

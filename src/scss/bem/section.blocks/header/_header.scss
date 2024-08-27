@@ -25,13 +25,6 @@
   }
 }
 
-@include Screen-xs {
-
-  .header {
-    position: absolute;
-  }
-}
-
 @import "header__logo";
 @import "header__menu";
 @import "header__toggle";

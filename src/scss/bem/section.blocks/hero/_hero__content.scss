@@ -6,10 +6,7 @@
 
 @include Screen-sm {
 
-  .hero {
-
-    &__content {
-      top: -20px;
-    }
+  .hero__content {
+    top: -20px;
   }
 }

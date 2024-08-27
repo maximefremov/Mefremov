@@ -27,7 +27,7 @@
 
 @include Screen-xs {
 
-  body {
+  .body {
 
     &::before {
       animation: none;

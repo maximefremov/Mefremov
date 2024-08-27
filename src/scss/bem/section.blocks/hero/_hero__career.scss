@@ -5,20 +5,14 @@
 
 @include Screen-md {
 
-  .hero {
-
-    &__career {
-      font-size: Rem(22px);
-    }
+  .hero__career {
+    font-size: Rem(22px);
   }
 }
 
 @include Screen-xs {
 
-  .hero {
-
-    &__career {
-      font-size: Rem(18px);
-    }
+  .hero__career {
+    font-size: Rem(18px);
   }
 }
