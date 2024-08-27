@@ -39,11 +39,12 @@ export default class App {
     this.heroParallax = new HeroParallax($(window).outerHeight());
     this.scrollTo = new ScrollTo();
 
-    // События
-    $(window).on('load', ()=> {
-      this.removePreloader();
-    });
+    // Методы
+    this.fancyBox();
+    this.wayPoints();
+    this.sendMessage();
 
+    // События
     $(window).on('resize', function () {
       windowHeight = $(this).outerHeight();
       windowWidth = $(this).outerWidth();
@@ -99,52 +100,9 @@ export default class App {
         }
       }
     }).trigger('scroll');
-
-    // Методы
-    this.fancyBox();
-    this.portfolioWebp();
-    this.wayPoints();
-    this.sendMessage();
-  }
-
-  portfolioWebp() {
-    function supportWebp() {
-      const elem = document.createElement('canvas')
-
-      if (!!(elem.getContext && elem.getContext('2d')))
-        return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0
-      else
-        return false
-    }
-
-    if (supportWebp) return
-
-    function getJpg(url) {
-      return url.replace(/webp/i, 'jpg')
-    }
-
-    $('.portfolio__cover').each(function() {
-      const $this = $(this)
-      $this.attr('src', getJpg($this.attr('src')))
-      if ($this.is('[srcset]')) $this.attr('srcset', getJpg($this.attr('srcset')))
-    })
-
-    $('.portfolio__gallery_img').each(function() {
-      const $this = $(this)
-      $this.attr('data-src', getJpg($this.attr('data-src')))
-      $this.attr('data-retina', getJpg($this.attr('data-retina')))
-    })
-  }
-
-  removePreloader() {
-    setTimeout(() => {
-      $('body').removeClass('compensate-for-scrollbar');
-      $('.preloader').removeClass('preloader--active');
-    }, 1000);
   }
 
   fancyBox() {
-    /*
     const pixelRatio = window.devicePixelRatio || 1
 
     $('button[value="gallery"]').on('click', function () {
@@ -173,7 +131,6 @@ export default class App {
         }
       })
     })
-    */
   }
 
   sendMessage() {
