@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:maximefremov/Mefremov-V1.git"
+    "url": "git@github.com:maximefremov/mefremov.git"
   },
   "author": "Maxim Efremov | mefremov.ru | maximefremov@mail.ru",
   "license": "ISC",
@@ -29,9 +29,8 @@
     "favicons-webpack-plugin": "^5.0.2",
     "html-webpack-plugin": "^5.3.2",
     "imagemin": "^8.0.1",
-    "imagemin-webp": "^6.0.0",
+    "imagemin-webp": "^6.1.0",
     "mini-css-extract-plugin": "^2.2.2",
-    "png-to-jpeg": "^1.0.1",
     "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
     "sass": "^1.77.8",
